@@ -1,0 +1,24 @@
+
+console.log(result)// usdefined
+let result= 10;
+console.log(result)// 10
+
+console.log(res)//undefined
+const res="name"
+console.log(res)// name
+add(2,3);//5
+function add(a,b){
+   return a+b;
+}
+add(2,3);//
+
+
+function MaxMin(arr,n){
+   let min=INfinity;
+   let max=INfinity;
+   for(let i=0;i<n;i++){
+      max=Math.max(max,arr[i]);
+      min=Math.min(min,arr[i]);
+   }
+   console.log(min,max)
+}
