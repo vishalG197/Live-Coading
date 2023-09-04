@@ -1,0 +1,22 @@
+{
+  "name": "express",
+  "version": "4.17.1",
+  "description": "A fast, minimalistic, and flexible web application framework for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "./"
+  },
+  "keywords": [
+    "github"
+  ],
+  "author": "as u wish",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
