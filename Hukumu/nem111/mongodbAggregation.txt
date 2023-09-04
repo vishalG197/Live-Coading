@@ -1,0 +1,154 @@
+1. Create a db named "netflix".
+
+ans:-  use netflix
+
+2. Create a collection named "movies".
+
+ans:- db.createCollection("movies")
+
+3.Insert the above data in the collection.
+
+ ans: db.movies.insertMany([{
+  "movie_id": 1,
+  "director_name": "Gaven McEnery",
+  "actor_name": "Fernandina Danilovich",
+  "year_of_release": 1971,
+  "imdb_rating": 5.0,
+  "genre": "sci-fi",
+  "language": "Kazakh"
+}, {
+  "movie_id": 2,
+  "director_name": "Anatola Attoe",
+  "actor_name": "Godiva Wolffers",
+  "year_of_release": 1989,
+  "imdb_rating": 5.9,
+  "genre": "action",
+  "language": "French"
+}, {
+  "movie_id": 3,
+  "director_name": "Emmanuel Chuney",
+  "actor_name": "Lind Capron",
+  "year_of_release": 2014,
+  "imdb_rating": 6.9,
+  "genre": "drama",
+  "language": "Indonesian"
+}, {
+  "movie_id": 4,
+  "director_name": "Nara Macewan",
+  "actor_name": "Vance Sidle",
+  "year_of_release": 1992,
+  "imdb_rating": 9.0,
+  "genre": "thriller",
+  "language": "Arabic"
+}, {
+  "movie_id": 5,
+  "director_name": "Amelie Shyres",
+  "actor_name": "Daryl Ottam",
+  "year_of_release": 2003,
+  "imdb_rating": 5.4,
+  "genre": "horror",
+  "language": "Punjabi"
+}, {
+  "movie_id": 6,
+  "director_name": "Malina Wreiford",
+  "actor_name": "Garvey Shervil",
+  "year_of_release": 1925,
+  "imdb_rating": 8.6,
+  "genre": "drama",
+  "language": "Swati"
+}, {
+  "movie_id": 7,
+  "director_name": "Juline Darree",
+  "actor_name": "Lief Stigers",
+  "year_of_release": 1936,
+  "imdb_rating": 9.9,
+  "genre": "drama",
+  "language": "Yiddish"
+}, {
+  "movie_id": 8,
+  "director_name": "Teresita Breeze",
+  "actor_name": "Jemmy Wolford",
+  "year_of_release": 1969,
+  "imdb_rating": 7.6,
+  "genre": "thriller",
+  "language": "Mongolian"
+}, {
+  "movie_id": 9,
+  "director_name": "Charmian Rubes",
+  "actor_name": "Leeland Ogles",
+  "year_of_release": 1999,
+  "imdb_rating": 8.0,
+  "genre": "sci-fi",
+  "language": "Estonian"
+}, {
+  "movie_id": 10,
+  "director_name": "Aime Mateev",
+  "actor_name": "Klarika Undrell",
+  "year_of_release": 1932,
+  "imdb_rating": 6.8,
+  "genre": "thriller",
+  "language": "Hindi"
+}, {
+  "movie_id": 11,
+  "director_name": "Briana Klaessen",
+  "actor_name": "Doe Lorenzin",
+  "year_of_release": 1998,
+  "imdb_rating": 5.3,
+  "genre": "horror",
+  "language": "Portuguese"
+}, {
+  "movie_id": 12,
+  "director_name": "Sharla Dallon",
+  "actor_name": "Temple Pina",
+  "year_of_release": 1935,
+  "imdb_rating": 6.0,
+  "genre": "romance",
+  "language": "Burmese"
+}, {
+  "movie_id": 13,
+  "director_name": "Gladys Tunnicliff",
+  "actor_name": "Angele Snoding",
+  "year_of_release": 1983,
+  "imdb_rating": 5.5,
+  "genre": "horror",
+  "language": "Swedish"
+}, {
+  "movie_id": 14,
+  "director_name": "Andeee Prangnell",
+  "actor_name": "Maia Coie",
+  "year_of_release": 1906,
+  "imdb_rating": 8.8,
+  "genre": "drama",
+  "language": "Haitian Creole"
+}, {
+  "movie_id": 15,
+  "director_name": "Lyman Aleshintsev",
+  "actor_name": "Miller Blowfelde",
+  "year_of_release": 1948,
+  "imdb_rating": 5.0,
+  "genre": "romance",
+  "language": "Armenian"
+}]
+)
+
+
+
+4 Show the data of movies where the genre can any one of these "horror", "thriller".
+
+ans: db.movies.find({$or: [{genre:"horror"},{genre:"thriller"}]}).pretty()
+
+5 Show the data of all the movies that were released before 1950.
+
+ans:- db.movies.find({ year_of_release:{$lt:1950}}).pretty()
+
+6 Show the data of all the movies where the rating is between 6.5 and 9 both including.
+
+ans:- db.movies.find({$and:[{imdb_rating:{$gte:6.5}},{imdb_rating:{$lte:9}}]}).pretty()
+
+7 show the data of the movies in decreasing order of their rating, skipping the 5 movies and limiting it to 5.
+
+ans:- db.movies.find().sort({imdb_rating:-1}).skip(5).limit(5).pretty()
+
+8 Delete the data of all the movies that were released before 1950.
+
+ ans:- db.movies.deleteMany({ year_of_release:{$lt:1950}})
